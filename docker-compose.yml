@@ -34,5 +34,5 @@ services:
 
   # # Optional: Caddy reverse proxy. See https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md
   # # You can find further examples here: https://github.com/nextcloud/all-in-one/discussions/588
- volumes:
-    nextcloud_aio_mastercontainer:
+volumes:
+  nextcloud_aio_mastercontainer:
