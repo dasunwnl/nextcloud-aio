@@ -38,7 +38,7 @@ services:
     restart: always
     container_name: caddy
     volumes:
-      - $PWD/Caddyfile:/etc/caddy/
+      - $PWD/Caddyfile:/etc/caddy
       - $PWD/site:/srv
       - caddy_config:/config
       - caddy_data:/data
