@@ -38,11 +38,11 @@ services:
     restart: always
     container_name: caddy
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./certs:/certs
-      - ./config:/config
-      - ./data:/data
-      - ./sites:/srv
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/certs:/certs
+      - ./caddy/config:/config
+      - ./caddy/data:/data
+      - ./caddy/sites:/srv
     network_mode: "host"
 
 volumes:
