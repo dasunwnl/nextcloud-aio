@@ -44,28 +44,7 @@ services:
   #    - ./data:/data
   #    - ./sites:/srv
   #  network_mode: "host"
-  swag:
-    image: lscr.io/linuxserver/swag
-    container_name: swag
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Asia/Colombo
-      - URL=wnl.lk
-      - SUBDOMAINS=wnldrive,online,
-      - VALIDATION=http
-      - EMAIL=dasun@wnl.lk #optional
-      - ONLY_SUBDOMAINS=true #optional
-    volumes:
-      - ./appdata/swag:/config
-    ports:
-      - 443:443
-      - 80:80
-      #- 8080:8080
-    restart: unless-stopped
-
+  
 volumes:
   nextcloud_aio_mastercontainer:
     name: nextcloud_aio_mastercontainer # This line is not allowed to be changed as otherwise the built-in backup solution will not work
