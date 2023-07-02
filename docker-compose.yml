@@ -33,17 +33,37 @@ services:
 
   # # Optional: Caddy reverse proxy. See https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md
   # # You can find further examples here: https://github.com/nextcloud/all-in-one/discussions/588
-  caddy:
-    image: caddy:alpine
-    restart: always
-    container_name: caddy
+  #caddy:
+  #  image: caddy:alpine
+  #  restart: always
+  #  container_name: caddy
+  #  volumes:
+  #    - ./Caddyfile:/etc/caddy/Caddyfile
+  #    - ./certs:/certs
+  #    - ./config:/config
+  #    - ./data:/data
+  #    - ./sites:/srv
+  #  network_mode: "host"
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Colombo
+      - URL=wnl.lk
+      - SUBDOMAINS=wnldrive,online,
+      - VALIDATION=http
+      - EMAIL=dasun@wnl.lk #optional
+      - ONLY_SUBDOMAINS=true #optional
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./certs:/certs
-      - ./config:/config
-      - ./data:/data
-      - ./sites:/srv
-    network_mode: "host"
+      - ./appdata/swag:/config
+    ports:
+      - 443:443
+      - 80:80
+    restart: unless-stopped
 
 volumes:
   nextcloud_aio_mastercontainer:
