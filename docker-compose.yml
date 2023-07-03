@@ -51,9 +51,9 @@ volumes:
   nextcloud_aio_mastercontainer:
     name: nextcloud_aio_mastercontainer # This line is not allowed to be changed as otherwise the built-in backup solution will not work
 networks:
-  default:
+  my-main-net:
     name: my-main-net
-    external: true   
+    #external: true   
   # # Optional: If you need ipv6, follow step 1 and 2 of https://github.com/nextcloud/all-in-one/blob/main/docker-ipv6-support.md first and then uncomment the below config in order to activate ipv6 for the internal nextcloud-aio network.
 # # Please make sure to uncomment also the networking lines of the mastercontainer above in order to actually create the network with docker-compose
 # networks:
